@@ -12,3 +12,6 @@ docpad generate --env static
 # Publish generated files
 git commit -m "Generated"
 git push -n public $currBranch:master
+
+# Erase last commit (Docpad Generation)
+git reset --hard HEAD~1
