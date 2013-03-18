@@ -1,0 +1,22 @@
+{
+  "name": "sev.docpad",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/bevry/kitchensink.docpad.git"
+  },
+  "engines": {
+    "node": "1.0.0",
+    "npm": "1.2.x"
+  },
+  "dependencies": {
+    "docpad": "6.x",
+    "docpad-plugin-marked": "2.x",
+    "docpad-plugin-eco": "2.x",
+    "docpad-plugin-cleanurls": "~2.4.0"
+  },
+  "devDependencies": {
+    "docpad-plugin-livereload": "2.x"
+  },
+  "main": "node_modules/docpad/bin/docpad-server"
+}
