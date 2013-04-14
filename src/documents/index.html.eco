@@ -1,0 +1,53 @@
+---
+layout: default
+---
+
+<!--
+      ___           ___
+     /  /\         /  /\          ___
+    /  /:/_       /  /:/_        /__/\
+   /  /:/ /\     /  /:/ /\       \  \:\
+  /  /:/ /::\   /  /:/ /:/_       \  \:\
+ /__/:/ /:/\:\ /__/:/ /:/ /\  ___  \__\:\
+ \  \:\/:/~/:/ \  \:\/:/ /:/ /__/\ |  |:|
+  \  \::/ /:/   \  \::/ /:/  \  \:\|  |:|
+   \__\/ /:/     \  \:\/:/    \  \:\__|:|
+     /__/:/       \  \::/      \__\::::/
+     \__\/         \__\/           ~~~~
+
+ -->
+<header>
+	<div class="face-canvas">
+		<div class="face-elements">
+			<div class="face-nose-base"> </div>
+
+			<div class="face-nose-right-outer face-nose face-nose-right face-nose-side"> </div>
+			<div class="face-nose-right-inner face-nose face-nose-right face-nose-side"> </div>
+			<div class="face-nose-left-outer face-nose face-nose-left face-nose-side"> </div>
+			<div class="face-nose-left-inner face-nose face-nose-left face-nose-side"> </div>
+
+			<div class="face-cheek face-cheek-left"> </div>
+			<div class="face-cheek face-cheek-right"> </div>
+
+			<div class="face-side face-side-left"> </div>
+			<div class="face-side face-side-right"> </div>
+		</div>
+
+		<img src="assets/media/face.svg" alt="Kanenas" />
+	</div>
+</header>
+	<!-- <object type="image/svg+xml" data="assets/media/face.svg" style="width:500px" width="500">Please use a modern browser!</object> -->
+
+<nav>
+	<!-- <a href="/">Den</a> -->
+	<a href="/lab">Lab</a>
+	<a href="/log">Log</a>
+</nav>
+
+<br/>
+<br/>
+    <div style="position:relative;">
+        <canvas id="compare" width="320" height="240"></canvas>
+        <canvas style="position:absolute;left:0;top:0;" id="overlay" width="320" height="240"></canvas>
+        <video id="vid" autoplay loop></video>
+    </div>

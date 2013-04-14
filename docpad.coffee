@@ -15,7 +15,7 @@ docpadConfig = {
     # network (e.g. via FTP) can cause a page to be partially
     # rendered as the page is regenerated *before* the source file
     # has completed updating: in this case increase this value.
-    regenerateDelay: 100    # default
+    regenerateDelay: 50 #100    # default
 
     # Out Path
     # Where should we put our generated website files?
@@ -27,6 +27,7 @@ docpadConfig = {
     # If it is a relative path, it will have the resolved `srcPath` prepended to it
     documentsPaths: [  # default
         'documents'
+        '_'
     ]
 
     # Files Paths
@@ -50,7 +51,7 @@ docpadConfig = {
 
     # Ignore Hidden Files
     # Whether or not we should ignore files that start with a dot from the scanning process
-    ignoreHiddenFiles: false  # default
+    ignoreHiddenFiles: true
 
     # Ignore Custom Patterns
     # Can be set to a regex of custom patterns to ignore from the scanning process
@@ -73,7 +74,7 @@ docpadConfig = {
     # Max Age
     # The default caching time limit that is sent with the response to the client
     # Can be set to `false` to disable caching
-    maxAge: 86400000   # default
+    maxAge: false #86400000   # default
 
 
     # =================================
@@ -90,7 +91,7 @@ docpadConfig = {
 
     # Growl
     # Whether or not we should display system notifications as things progress within DocPad
-    growl: true  # default
+    growl: false  # default
 
     # Catch Exceptions
     # Whether or not DocPad should catch uncaught exceptions
@@ -161,10 +162,20 @@ docpadConfig = {
             description: """
                 Paralog logs by a strange stranger
                 """
+                # Fighting the box
+
+        # Styling
+        meta:
+            css: ['assets/css/app.css']
+            js: [
+                '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
+                'assets/js/headtrackr/headtrackr.js',
+                'assets/js/app.js'
+            ]
+
 
         # -----------------------------
         # Helper Functions
-
         # Get the prepared site/document title
         # Often we would like to specify particular formatting to our page's title
         # we can apply that formatting here
@@ -187,6 +198,7 @@ docpadConfig = {
             @site.keywords.concat(@document.keywords or []).join(', ')
 
 
+
     # =================================
     # Plugin Configuration
 
@@ -195,6 +207,10 @@ docpadConfig = {
     plugins:
         cleanurls:
             enabled: false
+
+        sass:
+            outputStyle: 'expanded'
+
 
     # =================================
     # Environment Configuration

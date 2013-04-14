@@ -1,0 +1,205 @@
+
+.face-canvas {
+	position: relative;
+
+	@include transform-style(preserve-3d);
+	@include perspective(1000px);
+}
+
+.face-canvas, .face-canvas > * {
+	@include transition(all 0.1s ease);
+
+	/* Unfortunately these don't seem to help with the jagged edges on firefox */
+	@include backface-visibility(hidden);
+	outline: 1px solid transparent;
+}
+
+.face-canvas img, .face-canvas svg {
+	@include transform-style(preserve-3d);
+}
+
+/* NOSE */
+.face-nose {
+
+}
+
+.face-nose-side {
+	position: absolute;
+	width: 3%;
+	height: 10%;
+	margin-top: 108%;
+
+	@include transform-origin(50%, 0, 0, true);
+	/*box-shadow: inset 0px 0px 12px 5px #fff;*/ /* TEST */
+}
+
+.face-nose-left-outer, .face-nose-right-outer {
+	@include background(linear-gradient(top, #ffffff 0%,#eeeae0 100%));
+}
+
+/* RIGHT side of NOSE */
+.face-nose-right {
+	@include transform(rotateZ(-6deg) rotateY(45deg) translateX(-50%));
+	@include border-radius(50%);
+}
+.face-nose-right-outer {
+	//@include background(linear-gradient(top, #ffffff 0%,#eeeae0 100%));
+	/* max rotation 45-47 deg with the gradient on nose sides */
+	/* old prolly: max rotation 25 deg with this shape of nose and color #eeeae0 */
+
+	margin-left: 54.5%;
+}
+.face-nose-right-inner {
+	background-color: #fff;
+	margin-left: 54%;
+
+	/* TEST 2 */
+	/*background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#6304c9), color-stop(100%,#00effc));*/
+}
+/* LEFT side of NOSE */
+.face-nose-left {
+	@include transform(rotateZ(6deg) rotateY(135deg) translateX(-50%));
+	@include border-radius(50%);
+}
+.face-nose-left-outer {
+	//@include background(linear-gradient(top, #ffffff 0%,#eeeae0 100%));
+	/* max rotation 25 deg with this shape of nose and color */
+	margin-left: 43.5%; /*82px;*/
+
+	/* TEST */
+	/*background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#a90329), color-stop(100%,#37ff00));*/
+}
+.face-nose-left-inner {
+	background-color: #fff;
+	margin-left: 44%; /*83px;*/
+	/*padding-right: 5px;*/
+	/*padding-bottom: 0px;*/
+
+	/* TEST 2 */
+	/*background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#6304c9), color-stop(100%,#00effc));*/
+}
+/* END NOSE */
+
+/* START CHEEKS */
+.face-cheek {
+	display: block;
+	position: absolute;
+	width: 7%;
+	height: 15%;
+	top: 66%;
+	opacity: 0.4;
+	@include transform-origin(50%, 0, 0, true);
+	/* Compass bug with warnings and docpad's lack of compass config options forced to convert from 100% to 10 on the last color stop in order for CSS file to be valid */
+	@include background(radial-gradient(center, ellipse cover, rgba(240,240,240,1) 0,rgba(250,250,250,0) 80%,rgba(255,255,255,0) 10)); // 100%
+}
+.face-cheek-left {
+	left: 13%;
+	@include transform(rotateZ(-15deg) rotateY(-29deg) translateX(50%));
+}
+.face-cheek-right {
+	left: 81%;
+	@include transform(rotateZ(15deg) rotateY(-130deg) translateX(50%));
+}
+/* END CHEEKS */
+
+/* TODO EYES ? */
+
+/* HEAD BACK */
+.face-back {
+	position: absolute;
+
+	width:28%;
+	height: 87%;
+	margin-left: 4%;
+	left: 0;
+	top: 0;
+	z-index: -1;
+
+	@include transform-origin(50%, 0, 0, true);
+	@include transform(rotateY(125deg) translateX(51%) translateY(16%));
+
+	@include background(linear-gradient(-43deg, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 63%,rgba(255,255,255,0) 63%));
+	/* diagonal gradient that make up the hair */
+	@include border-radius(0 80% 93% 0 / 0 25% 72% 0); /* hair */
+}
+
+
+/* FACE SIDES */
+.face-side {
+	position: absolute;
+	left: 0;
+	top: 0;
+	/*background: -webkit-linear-gradient(-43deg, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 63%,rgba(255,255,255,0) 63%);*/ /* diagonal gradient that make up the hair */
+	background: #222;
+	width: 50%;
+	height: 85.4%;
+	z-index: -1; /* CHECK IF CAN REMOVE */
+	@include transform-origin(50%, 0, 0, true);
+	/*-webkit-transform: rotateY(125deg) translateX(51%) translateY(16%);*/
+
+	@include border-radius(0 91% 93% 0 / 0 33% 72% 0); /* hair */
+}
+
+.face-side-left {
+	@include transform(rotateY(140deg) translateX(53%) translateY(11%));
+	margin-left: 17%;
+}
+.face-side-right {
+	@include transform(rotateY(40deg) translateX(53%) translateY(11%));
+	margin-left: 35%;
+}
+/* EARS */
+.face-side:before{
+	/* Compass bug with warnings and docpad's lack of compass config options forced to convert from 100% to 10 on the last color stop in order for CSS file to be valid */
+	@include background(
+		radial-gradient(center, ellipse cover, rgba(34, 34, 34, 0) 0,rgba(34, 34, 34, 0) 20%,rgba(54, 54, 54, 1) 50%,rgba(34, 34, 34, 0) 90%,rgba(34, 34, 34, 0) 10)
+	);
+	display: block;
+	content: ' ';
+	width: 234%;
+	height: 61%;
+	margin-top: 31%;
+	@include border-radius(50% 50% 50% 50% / 50% 50% 50% 50%);
+	margin-left: -40%;
+	@include transform(rotateY(-82deg));
+	@include transform-style(preserve-3d);
+	@include background-size(180% 121%);
+	background-position: 100% 0%;
+	@include box-shadow(#222, 0, 0, 58px, 34px, true);
+}
+
+
+/* FACE ELEMENTS */
+.face-elements {
+	@include transform-style(preserve-3d);
+	position: absolute;
+	display: block;
+	@include transform-origin(50%, 0, 0, true);
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+}
+
+
+
+/*			RADIAL GRADIENT
+.face-side {
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 54%,rgba(255,255,255,0) 55%,rgba(255,255,255,0) 100%);
+	width: 65%;
+	background-size: 200% 112%;
+	background-position: top right;
+	height: 64%;
+	z-index: -1;
+	-webkit-transform-origin: 50% 0 0;
+	-webkit-transform: rotateY(125deg) translateX(51%) translateY(16%);
+	border-radius: 0 80% 93% 0 / 0 25% 72% 0;
+}
+.face-side-right {
+	-webkit-transform: rotateY(71deg) translateX(51%) translateY(7%) rotateX(1deg);
+	margin-left: 47%;
+}
+*/
