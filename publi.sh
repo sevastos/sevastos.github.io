@@ -6,7 +6,7 @@ currBranch=`git rev-parse --abbrev-ref HEAD`
 rm -rf out/*
 
 # Publish source
-git push -n public $currBranch:source -f
+git push public $currBranch:source -f
 
 # Generate docpad files
 docpad generate --env static
@@ -24,7 +24,7 @@ if [[ -z "${commit_msg}" ]]; then
 	commit_msg = "Generated"
 fi
 git commit -m "Pub: $commit_msg" # Concat unpublish commit messages OR ask user
-git push -n public master:master
+git push public master:master
 
 # Erase last commit (Docpad Generation)
 #git reset --hard HEAD~1
