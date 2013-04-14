@@ -3,8 +3,10 @@
 #currBranch=`git branch --no-color | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
 currBranch=`git rev-parse --abbrev-ref HEAD`
 
+rm -rf out/*
+
 # Publish source
-git push -n public $currBranch:source
+git push -n public $currBranch:source -f
 
 # Generate docpad files
 docpad generate --env static

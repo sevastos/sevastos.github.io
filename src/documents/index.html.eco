@@ -16,6 +16,8 @@ layout: default
      \__\/         \__\/           ~~~~
 
  -->
+
+
 <header>
 	<div class="face-canvas">
 		<div class="face-elements">
@@ -44,10 +46,8 @@ layout: default
 	<a href="/log">Log</a>
 </nav> -->
 
-
-
-<!--     <div style="position:relative;">
-        <canvas id="compare" width="320" height="240"></canvas>
-        <canvas style="position:absolute;left:0;top:0;" id="overlay" width="320" height="240"></canvas>
-        <video id="vid" autoplay loop></video>
-    </div> -->
+<div style="position:relative; display:none;">
+    <canvas id="compare" width="320" height="240"></canvas>
+    <canvas style="position:absolute;left:0;top:0;" id="overlay" width="320" height="240"></canvas>
+    <video id="vid" autoplay loop></video>
+</div>

@@ -15,7 +15,6 @@
     "docpad-plugin-marked": "2.x",
     "docpad-plugin-eco": "2.x",
     "docpad-plugin-cleanurls": "2.x",
-    "docpad-plugin-ghpages": "~2.0.2"
   },
   "devDependencies": {
     "docpad-plugin-livereload": "2.x"
