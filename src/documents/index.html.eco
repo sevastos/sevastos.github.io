@@ -38,16 +38,16 @@ layout: default
 </header>
 	<!-- <object type="image/svg+xml" data="assets/media/face.svg" style="width:500px" width="500">Please use a modern browser!</object> -->
 
-<nav>
-	<!-- <a href="/">Den</a> -->
+<!-- <nav>
+	<a href="/">Den</a>
 	<a href="/lab">Lab</a>
 	<a href="/log">Log</a>
-</nav>
+</nav> -->
 
-<br/>
-<br/>
-    <div style="position:relative;">
+
+
+<!--     <div style="position:relative;">
         <canvas id="compare" width="320" height="240"></canvas>
         <canvas style="position:absolute;left:0;top:0;" id="overlay" width="320" height="240"></canvas>
         <video id="vid" autoplay loop></video>
-    </div>
+    </div> -->
