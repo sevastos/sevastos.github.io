@@ -8,12 +8,25 @@ var MindController = {
 	browserPrefixes : ['-webkit-', '-moz-', '-ms-', '-o-', ''],
 
 	cacheEls: null,
+	cacheSel: '',
 
+	/**
+	 * Initialize stuff (DOM elements etc.)
+	 * @param  {String} faceEls Selector of elements to cache
+	 */
 	init: function(faceEls) {
+		this.cacheSel = faceEls;
 		var that = this;
 		$(document).ready(function(){
 			that.cacheEls = $(faceEls);
 		});
+	},
+
+	/**
+	 * Recache the DOM elements involved
+	 */
+	recacheDom: function(){
+		this.cacheEls = $(this.cacheSel);
 	},
 
 	/**
@@ -63,7 +76,7 @@ var MindController = {
 };
 
 
-MindController.init('.face-canvas > *');
+MindController.init('.face-canvas > :not(svg)');
 
 
 /**************************/
@@ -82,7 +95,7 @@ document.addEventListener('headtrackingEvent', function(event) {
 
 	var curX = Math.round(event.x), // or Math.round(event.x * 10) / 10
 
-		baseZ = 30, // base CM of Z axis - lower to increase angle
+		baseZ = 40, // base CM of Z axis - lower to increase angle
 		angleScale = 0.5, // lower to make max angle smaller
 		headAngle = Math.atan2(baseZ, event.x) * 180 / Math.PI - 90; // Real angle
 	headAngle = Math.round(headAngle * 100) / 100 * angleScale; // "Smoothen" angle
@@ -113,10 +126,10 @@ document.addEventListener('headtrackingEvent', function(event) {
 			maxIdealHeadAngle = 9, //18,
 			distanceFromScreen = curZ,
 			idealDistFromScreen = 55;
-		var perspective = 1500 + //$('#perspective').attr('min') +
+		var perspective = 1200 //$('#perspective').attr('min') +
 						//((170 - (curZ/170)) * idealPerspective * 0.8) +
-						((distanceFromScreen/idealDistFromScreen) * idealPerspective * -0.5) +
-						(Math.abs(headAngle)/maxIdealHeadAngle * idealPerspective * 0.5);
+						+ (Math.abs(headAngle)/maxIdealHeadAngle * idealPerspective * 30)
+						- ((distanceFromScreen/idealDistFromScreen) * idealPerspective * 0.5);
 
 
 		MindController.setPerspective(perspective);
@@ -176,6 +189,8 @@ function handleSVGs(){
 						.replace(/width="[^"]*"/, 'width="'+ w +'"')
 						.replace(/height="[^"]*"/, 'height="'+ h +'"')
 				);
+
+			MindController.recacheDom();
 		}
 	});
 }
