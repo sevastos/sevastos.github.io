@@ -47,7 +47,15 @@ docpadConfig = {
 
     # Ignore Paths
     # Can be set to an array of absolute paths that we should ignore from the scanning process
-    ignorePaths: false  # default
+    ignorePaths: [  # default
+        'assets/js/headtrackr/*'
+        'assets/js/headtrackr'
+        '_/assets/js/headtrackr'
+        'src/_/assets/js/headtrackr'
+        '/assets/js/headtrackr'
+        '/_/assets/js/headtrackr'
+        '/src/_/assets/js/headtrackr'
+    ]
 
     # Ignore Hidden Files
     # Whether or not we should ignore files that start with a dot from the scanning process
@@ -160,7 +168,7 @@ docpadConfig = {
 
             # The website description
             description: """
-                Paralog logs by a strange stranger
+                Paralog log by a strange stranger
                 """
                 # Fighting the box
 

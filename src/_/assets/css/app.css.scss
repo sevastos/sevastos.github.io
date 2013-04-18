@@ -4,14 +4,22 @@
 
 
 // Variables
+$m1-color: #91CDD5; //rgb(213, 185, 128);
+$m2-color: #D5BE91;
+$m3-color: mix($m1-color, $m2-color); // greenish-greyish
+$m4-color: complement($m1-color); //redish-lightish
+
+// Face
+$face-perspective: 590px;
 
 
 /***************************************/
 /***************************************/
-/************* NORMALIZE ***************/
+/************* INCLUDES ***************/
 /***************************************/
 /***************************************/
-@import ".includes/normalize.scss";
+@import ".includes/animation.scss";
+@import ".includes/normalize.scss"; // Normalize CSS
 
 /***************************************/
 /***************************************/
@@ -25,9 +33,198 @@
 /**************** BASIS ****************/
 /***************************************/
 /***************************************/
-body {
-	width: 990px;
-	margin: 0 auto;
+
+html, body {
+    width: 100%;
+    height: 100%;
+
+
+    font-size: 16px;
+    line-height: 16px;
+}
+
+a {
+    text-decoration: none;
+    color: #161803;
+}
+
+
+
+header.has-face nav {
+    @include perspective(550px); /*v1: 400px*/
+    @include transform-style(preserve-3d);
+
+    position: relative;
+}
+
+
+/* FACE ANIMS */
+@include keyframes(curious-hover-face) {
+    $range: 40;
+
+    0%, 100% { @include transform(translateY(0px)); }
+    50%      { @include transform(translateY($range * -1px)); }
+}
+@include keyframes(curious-hover-shadow) {
+   //$range: 40;
+
+    0%, 100%    { @include box-shadow(inset 0 0 0px 0px #fff); }
+    50%         { @include box-shadow(inset 0 0 285px 66px #fff); }
+}
+
+@include keyframes(curious-rotation) {
+    $range: 18;
+
+    //0%, 50%, 100% { @include transform(rotateY(0deg)); }
+    25%      { @include transform(rotateY($range * -1deg)); }
+    75%      { @include transform(rotateY($range * 1deg)); }
+}
+
+
+header.has-face.is-waiting {
+    .face-side {
+
+    }
+
+    // Rotation
+    .face-elements, .face-img{
+        @include animation(curious-rotation 7s ease infinite);
+    }
+
+    // Hover
+    $anim-duration: 4s;
+    $anim-timing: ease;
+    .face-canvas {
+        @include animation(curious-hover-face $anim-duration $anim-timing infinite);
+    }
+    .face-shadow {
+        @include animation(curious-hover-shadow $anim-duration $anim-timing infinite);
+    }
+
+
+    .face-canvas, .face-canvas > * {
+        //@include animation(curious-sides 5s linear 1s infinite);
+        //@include transition(none);
+    }
+}
+
+
+nav ul {
+    text-align: center;
+    @include transform(rotateX(90deg) translateY(50px));
+    @include transform-style(preserve-3d); // icon
+    list-style: none;
+
+
+    padding: 0;
+    position: absolute;
+    width: 100%;
+
+    /* v2 */
+    @include transform(rotateX(75deg) translateY(310px)); // 67 260
+    @include transform-origin(50% 50% -110px 50%);
+}
+nav li {
+    display: block;
+    @include transform-style(preserve-3d);
+}
+nav a {
+    //background: $m1-color;  //#161803;
+    color:#fff;
+    //@include border-radius(15px);
+    position: relative;
+    display: block;
+    //float: left;
+    margin-top: 20px;
+    /* padding: 20px 10px; */
+    font-size: 25px;
+    line-height: 65px;
+    height: 65px;
+
+
+    //-webkit-filter: blur(1px); Seriously degrades the initial draw
+    // Ideas:
+    // 1. Animation that has blur 0 at 0% and 1px at 0.01% till end
+    //     this could help and keep the original non-blurred version available for hover
+
+
+    //@include box-shadow(#fff 0 0 5px 2px inset);
+
+    $base-color-percentage: 2;
+    $gradient-color-top: darken($m2-color, $base-color-percentage); //#3eb8e5;
+    $gradient-color-bot: darken($m2-color, $base-color-percentage * 5); //#2ca0ca;
+    $button-inset-color: $m2-color;
+    $button-bevel-color: darken($m2-color, $base-color-percentage * 10);  //#156785;
+    $button-shadow-color: #bbb;
+
+    @include background(
+        linear-gradient(
+            top,
+            $gradient-color-top 0,
+            $gradient-color-bot 1
+        )
+    );
+    //background:
+     //0 0 86px 12px #aaa
+    @include box-shadow(
+        //inset 0 0 70px #fff,
+        inset 0px 1px 0px $button-inset-color,
+        0px 5px 0px 0px $button-bevel-color,
+        0px 7px 5px $button-shadow-color
+    );
+
+    //@include perspective(1000);
+
+    @include transition(all 0.5s ease-out);
+    @include backface-visibility(hidden);
+    @include transform-style(preserve-3d);
+
+    -webkit-font-smoothing: antialiased;
+
+    //box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #156785, 0px 10px 5px #999;
+}
+
+nav a:focus , nav a:hover{
+    @include transform(rotateX(-75deg) translateY(-15px) translateZ(25px));
+    //-webkit-filter: blur(0px);
+}
+
+nav a:active {
+    @include transform(rotateX(-45deg) translateY(-30px) translateZ(25px));
+}
+
+nav .icon-notebook:before,
+nav .icon-lab:before,
+nav .icon-mail-3:before {
+    position: absolute;
+    display: block;
+    left: 5%;
+    top: 33%;
+
+    // TODO 3D ICONS
+    /* position: absolute;
+    display: block;
+    left: 5%;
+    -webkit-transform: rotateX(-95deg) translateY(-32px);
+    -webkit-transform-style: preserve-3d;
+    text-shadow: -1px -1px 9px #fff, -1px -1px 0px #fff, 1px 1px 0px rgba(0,0,0,0.15);
+    font-size: 45px;
+    color: rgba(132, 204, 218, 0.38); */
+}
+
+
+
+footer {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+}
+
+
+
+/* HEAD TRACKER */
+#headtrackerMessage {
+    line-height: 90px;
 }
 
 
@@ -40,3 +237,7 @@ body {
 @import "face.scss";
 
 
+/*** DEV ***/
+canvas {
+    z-index: -1;
+}

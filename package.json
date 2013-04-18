@@ -14,7 +14,7 @@
     "docpad-plugin-sass": "2.x",
     "docpad-plugin-marked": "2.x",
     "docpad-plugin-eco": "2.x",
-    "docpad-plugin-cleanurls": "2.x",
+    "docpad-plugin-cleanurls": "2.x"
   },
   "devDependencies": {
     "docpad-plugin-livereload": "2.x"
