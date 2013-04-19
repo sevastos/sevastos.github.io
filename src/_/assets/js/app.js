@@ -1,9 +1,15 @@
 /**************************/
 /******* SIMPLE BASE ******/
 /**************************/
+var debug = false;
+function d(msg) {
+  if (debug) {
+    console.log(msg);
+  }
+}
+
 
 var MindController = {
-  debug: false,
 
   browserPrefixes : ['-webkit-', '-moz-', '-ms-', '-o-', ''],
 
@@ -68,9 +74,7 @@ var MindController = {
    * @param {Float} degrees Degrees of rotation on Y axis
    */
   setAngle: function(degrees) {
-    if (this.debug) {
-      console.log('Setting Head Angle to: ' + degrees + ' degrees');
-    }
+    d('Setting Head Angle to: ' + degrees + ' degrees');
 
     // change face orientation
     var transform = 'rotateY('+degrees+'deg)';
@@ -84,9 +88,7 @@ var MindController = {
    * @param {Integer} perspective CSS perspective value in pixels
    */
   setPerspective: function(perspective) {
-    if (this.debug) {
-      console.log('Setting Head Perspective to: ' + perspective + ' (px)');
-    }
+    d('Setting Head Perspective to: ' + perspective + ' (px)');
 
     // change face depth
     var perspective = perspective + 'px'; //TODO check px removal
@@ -100,22 +102,23 @@ var MindController = {
    * @param {Float} distanceZ Distance of user<->screen in cm's
    */
   setBlur: function(distanceZ) {
-    console.log('distance Z:', distanceZ);
+    d('distance Z:', distanceZ);
+
     if (distanceZ <= this.config.warnDistanceZ) {
       var blur;
       blur = (this.config.warnDistanceZ - distanceZ);
       blur = (blur / this.config.warnDistanceZ) * this.config.warnDistanceMaxBlur; //scale
       blur = Math.round(blur);// / 10;
       if (this.run.blur !== blur) {
-        console.log('distance Z:', distanceZ, ' => ', blur, 'NEW');
+        d('distance Z:', distanceZ, ' => ', blur, 'NEW');
         this.run.blur = blur;
         this.setCss(this.cachedEls['wrapper'], 'filter', 'blur(' + blur + 'px)');
       } else {
-        console.log('distance Z:', distanceZ, ' => ', blur, 'SKIPPED');
+        d('distance Z:', distanceZ, ' => ', blur, 'SKIPPED');
       }
     } else {
       if (this.run.blur !== 0) {
-        console.log('distance Z:', distanceZ, ' => ', 'NO');
+        d('distance Z:', distanceZ, ' => ', 'NO');
         this.run.blur = 0;
         this.setCss(this.cachedEls['wrapper'], 'filter', '');
       }
