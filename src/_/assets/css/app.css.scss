@@ -93,7 +93,7 @@ header.has-face.is-waiting {
 
     // Hover
     $anim-duration: 4s;
-    $anim-timing: ease;
+    $anim-timing: linear;
     .face-canvas {
         @include animation(curious-hover-face $anim-duration $anim-timing infinite);
     }
