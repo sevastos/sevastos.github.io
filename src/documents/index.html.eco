@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<header class="has-face is-waiting">
+<header class="has-face">
 	<div class="face-canvas">
 		<div class="face-elements">
 
