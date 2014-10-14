@@ -219,6 +219,9 @@ docpadConfig = {
         sass:
             outputStyle: 'expanded'
 
+        ghpages:
+            deployRemote: 'origin'
+            deployBranch: 'master'
 
     # =================================
     # Environment Configuration
