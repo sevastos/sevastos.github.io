@@ -1,0 +1,121 @@
+@font-face {
+	font-family: 'sev';
+	src:url('../fonts/sev.eot');
+	src:url('../fonts/sev.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/sev.woff') format('woff'),
+		url('../fonts/sev.ttf') format('truetype'),
+		url('../fonts/sev.svg#sev') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+	font-family: 'sev';
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"] {
+*/
+.icon-spinner, .icon-spinner-2, .icon-spinner-3, .icon-spinner-4, .icon-IcoMoon, .icon-linkedin, .icon-github, .icon-dribbble, .icon-dribbble-2, .icon-github-2, .icon-dribbble-3, .icon-twitter, .icon-twitter-2, .icon-github-3, .icon-stackoverflow, .icon-mail, .icon-mail-2, .icon-mail-3, .icon-twitter-3, .icon-clock, .icon-clock-2, .icon-lab, .icon-notebook, .icon-face, .icon-camera, .icon-mail-4 {
+	font-family: 'sev';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	/* line-height: 1; */
+	-webkit-font-smoothing: antialiased;
+}
+.icon-spinner:before, .icon-spinner-2:before, .icon-spinner-3:before, .icon-spinner-4:before, .icon-IcoMoon:before, .icon-linkedin:before, .icon-github:before, .icon-dribbble:before, .icon-dribbble-2:before, .icon-github-2:before, .icon-dribbble-3:before, .icon-twitter:before, .icon-twitter-2:before, .icon-github-3:before, .icon-stackoverflow:before, .icon-mail:before, .icon-mail-2:before, .icon-mail-3:before, .icon-twitter-3:before, .icon-clock:before, .icon-clock-2:before, .icon-lab:before, .icon-notebook:before, .icon-face:before, .icon-camera:before, .icon-mail-4:before {
+	line-height: 1;
+}
+.icon-spinner:before {
+	content: "\e000";
+}
+.icon-spinner-2:before {
+	content: "\e001";
+}
+.icon-spinner-3:before {
+	content: "\e002";
+}
+.icon-spinner-4:before {
+	content: "\e003";
+}
+.icon-IcoMoon:before {
+	content: "\e004";
+}
+.icon-linkedin:before {
+	content: "\e005";
+}
+.icon-github:before {
+	content: "\e006";
+}
+.icon-dribbble:before {
+	content: "\e007";
+}
+.icon-dribbble-2:before {
+	content: "\e008";
+}
+.icon-github-2:before {
+	content: "\e009";
+}
+.icon-dribbble-3:before {
+	content: "\e00a";
+}
+.icon-twitter:before {
+	content: "\e00b";
+}
+.icon-twitter-2:before {
+	content: "\e00c";
+}
+.icon-github-3:before {
+	content: "\e00d";
+}
+.icon-stackoverflow:before {
+	content: "\e00e";
+}
+.icon-mail:before {
+	content: "\e00f";
+}
+.icon-mail-2:before {
+	content: "\e010";
+}
+.icon-mail-3:before {
+	content: "\e011";
+}
+.icon-twitter-3:before {
+	content: "\e012";
+}
+.icon-clock:before {
+	content: "\e013";
+}
+.icon-clock-2:before {
+	content: "\e014";
+}
+.icon-lab:before {
+	content: "\e015";
+}
+.icon-notebook:before {
+	content: "\e016";
+}
+.icon-face:before {
+	content: "\e999";
+}
+.icon-camera:before {
+	content: "\e017";
+}
+.icon-mail-4:before {
+	content: "\e019";
+}
+
