@@ -10,14 +10,15 @@
     "npm": "1.2.x"
   },
   "dependencies": {
-    "docpad": "6.x",
-    "docpad-plugin-sass": "2.x",
-    "docpad-plugin-marked": "2.x",
-    "docpad-plugin-eco": "2.x",
-    "docpad-plugin-cleanurls": "2.x"
+    "docpad": "~6.69.1",
+    "docpad-plugin-cleanurls": "~2.7.0",
+    "docpad-plugin-eco": "~2.1.0",
+    "docpad-plugin-ghpages": "~2.4.3",
+    "docpad-plugin-marked": "~2.2.1",
+    "docpad-plugin-sass": "~2.7.3"
   },
   "devDependencies": {
-    "docpad-plugin-livereload": "2.x"
+    "docpad-plugin-livereload": "~2.6.0"
   },
   "main": "node_modules/docpad/bin/docpad-server"
 }

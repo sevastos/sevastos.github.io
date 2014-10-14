@@ -63,7 +63,7 @@ docpadConfig = {
 
     # Ignore Custom Patterns
     # Can be set to a regex of custom patterns to ignore from the scanning process
-    ignoreCustomPatterns: false  # default
+    ignoreCustomPatterns: /.*_\/assets\/js\/app\.js$/  # default
 
 
     # =================================

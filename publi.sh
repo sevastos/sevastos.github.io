@@ -1,5 +1,5 @@
 #!/bin/bash
-
+exit 0
 currBranch=`git rev-parse --abbrev-ref HEAD`
 
 # Clean up previous generated site
@@ -18,7 +18,7 @@ cp CNAME out/CNAME
 cp README.md out/README.md
 cd out
 git init
-git remote add public git@github.com:sevastos/sevastos.github.com.git
+git remote add public git@github.com:sevastos/sevastos.github.io.git
 
 # Publish generated files
 git add .
