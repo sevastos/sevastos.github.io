@@ -177,7 +177,7 @@ docpadConfig = {
             css: ['assets/css/app.css']
             js: [
                 '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
-                'assets/js/headtrackr/headtrackr.js',
+                #'assets/js/headtrackr/headtrackr.js',
                 'assets/js/app.js'
             ]
 
