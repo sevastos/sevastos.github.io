@@ -548,6 +548,10 @@ a {
   color: #161803;
 }
 
+.text-center {
+  text-align: center;
+}
+
 header.has-face nav {
   -webkit-perspective: 550px;
   -moz-perspective: 550px;
@@ -900,6 +904,11 @@ section {
 .trap {
   transition: opacity 0.3s;
   opacity: 1 !important;
+}
+
+.trap div a {
+  margin: 2px 8px 0;
+  display: inline-block;
 }
 
 @media only screen and (min-height: 300px) and (max-height: 360px) {

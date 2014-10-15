@@ -84,6 +84,10 @@ only screen and (                min-resolution: 3dppx) {
   opacity: 1 !important;
 }
 
+.trap div a{
+    margin: 2px 8px 0;
+    display: inline-block;
+}
 
 @media only screen and ( min-height: 300px ) and (max-height: 360px ){
   .trap > img {

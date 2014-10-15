@@ -49,6 +49,9 @@ a {
 }
 
 
+.text-center {
+    text-align: center;
+}
 
 header.has-face nav {
     @include perspective(550px); /*v1: 400px*/

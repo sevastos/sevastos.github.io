@@ -6,4 +6,9 @@ layout: default
   <img src="./assets/img/face@1x.png" width="207" height="365" />
   <img src="./assets/img/face@2x.png" width="207" height="365" />
   <img src="./assets/img/face@3x.png" width="207" height="365" />
+  <div class="text-center">
+    <a rel="external author me" href="https://github.com/sevastos"><img src="./assets/img/github.svg" /></a>
+    <a rel="external author me" href="https://twitter.com/smas"><img src="./assets/img/twitter.svg" /></a>
+    <a rel="external author me" href="https://www.linkedin.com/in/sevastos"><img src="./assets/img/linkedin.svg" /></a>
+  </div>
 </div>
