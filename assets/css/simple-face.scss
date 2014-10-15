@@ -1,0 +1,111 @@
+// 1 way
+// .wrapper > i {
+//     display: block;
+//     background: transparent url("../img/face@1x.png") no-repeat center;
+//     width: 100%;
+//     height: 100%;
+//     position: absolute;
+//     text-indent: -9999px;
+// }
+
+// @media
+// only screen and (-webkit-min-device-pixel-ratio: 2),
+// only screen and (   min--moz-device-pixel-ratio: 2),
+// only screen and (     -o-min-device-pixel-ratio: 2/1),
+// only screen and (        min-device-pixel-ratio: 2),
+// only screen and (                min-resolution: 192dpi),
+// only screen and (                min-resolution: 2dppx) {
+
+//   .wrapper > i {
+//     background-image: url("../img/face@2x.png");
+//     background-size: 414px 730px;
+//   }
+// }
+
+// @media
+// only screen and (-webkit-min-device-pixel-ratio: 3),
+// only screen and (   min--moz-device-pixel-ratio: 3),
+// only screen and (     -o-min-device-pixel-ratio: 3/1),
+// only screen and (        min-device-pixel-ratio: 3),
+// only screen and (                min-resolution: 288dpi),
+// only screen and (                min-resolution: 3dppx) {
+
+//   .wrapper > i {
+//     background-image: url("../img/face@3x.png");
+//     background-size: 621px 1095px;
+//   }
+// }
+
+// or another
+html, body {min-height: 0;}
+section { display: table; width: 100%; height: 100%; }
+.trap {
+  display: table-cell;
+  width: 100%;
+  vertical-align: middle;
+  height: 100%;
+}
+.trap > img {
+  display: none;
+  margin: auto;
+}
+
+/* @1x */
+.trap > img:first-child { display: block; }
+
+/* @2x */
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) {
+  .trap > img:first-child { display: none; }
+  .trap > img + img { display: block; }
+  .trap > img + img + img { display: none; }
+}
+
+/* @3x */
+@media
+only screen and (-webkit-min-device-pixel-ratio: 3),
+only screen and (   min--moz-device-pixel-ratio: 3),
+only screen and (     -o-min-device-pixel-ratio: 3/1),
+only screen and (        min-device-pixel-ratio: 3),
+only screen and (                min-resolution: 288dpi),
+only screen and (                min-resolution: 3dppx) {
+  .trap > img:first-child { display: none; }
+  .trap > img + img { display: none; }
+  .trap > img + img + img { display: block; }
+}
+
+.trap {
+  transition: opacity 0.3s;
+  opacity: 1 !important;
+}
+
+.trap div a{
+    margin: 2px 8px 0;
+    display: inline-block;
+}
+
+@media only screen and ( min-height: 300px ) and (max-height: 360px ){
+  .trap > img {
+    zoom: 0.8;
+  }
+}
+
+@media only screen and ( min-height: 260px) and (max-height: 300px ){
+  .trap > img {
+    zoom: 0.6;
+  }
+}
+
+@media only screen and ( max-height: 259px ){
+  .trap > img {
+    zoom: 0.5;
+  }
+}
+
+
+
